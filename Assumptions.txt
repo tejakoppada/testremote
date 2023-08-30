@@ -1,0 +1,26 @@
+1.average residual is zero(p<Alpha)
+2.constant variance (P>Alpha)
+3.uncorrelated errors(P>Alpha)
+4.Residuals are Normally distributed(P>Alpha)
+5.Regressors are Statistically independent(VIF<5)
+
+#Assumptions
+#1. Average residuals is zero
+mean(Per_lm$residuals)
+#2. Constant Variance
+bptest(Per_lm)
+#3. Uncorrelated errors
+durbinWatsonTest(Per_lm)
+#4. Normality test for residuals
+shapiro.test(Per_lm$residuals)
+#5. Independent regressors
+vif(Per_lm)
+
+
+Models:
+if it fails
+constant Variance-GLS
+Uncorrelated errors-GLS
+Normality-Robust
+VIF-PCR
+when the dependent variable is categorical or binary variable-Logistic variable.
